@@ -10,6 +10,9 @@ dotenv.config({ path: path.resolve("./src/config/.env") });
 const app = express();
 const port = process.env.PORT || 3001;
 
+// For vercel
+app.set("trust proxy", 1);
+
 Bootstrap(app, express);
 
 const httpServer = app.listen(port, () =>
@@ -17,4 +20,3 @@ const httpServer = app.listen(port, () =>
 );
 
 runIO(httpServer, app);
-
